@@ -12,10 +12,6 @@ export default {
   },
   methods: {
       login(){},
-      logout(){},
-  },
-  mounted(){
-    console.log(firebase)
   }
 };
 </script>
