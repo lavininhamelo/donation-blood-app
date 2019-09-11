@@ -6,6 +6,7 @@
       <input type="password" v-model="password" />
       <input type="submit" value="Login" />
     </form>
+    
   </div>
 </template>
 
