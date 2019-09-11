@@ -40,8 +40,6 @@ export default {
           db.collection("Users")
             .doc(created.user.uid)
             .set({
-              email: this.email,
-              password: this.password,
               first_name: this.first_name,
               last_name: this.last_name,
               blood_type: this.blood_type,
