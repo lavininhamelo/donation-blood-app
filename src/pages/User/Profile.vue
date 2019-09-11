@@ -18,7 +18,6 @@ export default {
   data() {
     return {
       email: null,
-      password: null,
       first_name: null,
       last_name: null,
       blood_type: null,
