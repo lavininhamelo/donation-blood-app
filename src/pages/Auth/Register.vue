@@ -1,15 +1,16 @@
 <template>
-  <div>
+  <div class="container">
     Register
     <form id="form" v-on:submit.prevent="singup()">
-      E-mail: <input type="email" v-model="email" placeholder="email@email.com" />
-      Password: <input type="password" v-model="password" />
-      First Name:<input type="text" v-model="first_name" />
-      Last Name: <input type="text" v-model="last_name" />
-      Blood Type: <input type="text" v-model="blood_type" />
-      Years: <input type="text" v-model="years" />
-      Your bio: <input type="text" v-model="bio" />
-      <input type="submit" value="Register" />
+        
+      <br><label>E-mail: </label><input type="email" v-model="email" placeholder="email@email.com" />
+      <br><label>Password: </label><input type="password" v-model="password" />
+      <br><label>First Name:</label><input type="text" v-model="first_name" />
+      <br><label>Last Name: </label><input type="text" v-model="last_name" />
+      <br><label>Blood Type: </label><input type="text" v-model="blood_type" />
+      <br><label>Years: </label><input type="text" v-model="years" />
+      <br><label>Your bio: </label><input type="text" v-model="bio" />
+      <br><input type="submit" value="Register" />
     </form>
   </div>
 </template>
@@ -36,7 +37,7 @@ export default {
       auth
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(created => {
-          return db.collection("Users")
+          db.collection("Users")
             .doc(created.user.uid)
             .set({
               email: this.email,
@@ -62,4 +63,7 @@ export default {
 </script>
 
 <style>
+
+
+
 </style>
