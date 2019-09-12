@@ -33,6 +33,23 @@ export default {
     };
   },
   methods: {
+    updateProfile(){
+       var user = auth.currentUser;
+        if(user){
+       var names = `${this.first_name} ${this.last_name}`
+
+              user.updateProfile({
+              displayName: names,
+              photoURL: 'https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg'
+          }).then(function() {
+              console.log('Alterado com Sucesso')
+              
+          }).catch(function(error) {
+              const e = `${error.code} - ${error.message}`;
+              console.log(e);
+          })
+        }else this.$router.push('/login')
+    },
     singup() {
       auth
         .createUserWithEmailAndPassword(this.email, this.password)
@@ -46,7 +63,9 @@ export default {
               years: this.years,
               bio: this.bio
             });
+            this.updateProfile();
             this.$router.push("/profile");
+            
         })
         .catch(function(error) {
           const e = `${error.code} - ${error.message}`;

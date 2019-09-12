@@ -3,7 +3,9 @@
     Profile
     <a href="#" @click="logout()">Logout</a>
 <br><br>
+    <img :src="imageProfile" width="100">
     <p>{{first_name}} {{last_name}}, {{years}}, {{blood_type}}</p>
+    <p>{{email}}</p>
     <p>{{bio}}</p>
     
   </div>
@@ -17,12 +19,14 @@ export default {
   name: "Profile",
   data() {
     return {
-      email: null,
+      email: auth.currentUser.email,
       first_name: null,
       last_name: null,
       blood_type: null,
       years: null,
-      bio: null
+      bio: null,
+      imageProfile: auth.currentUser.photoURL,
+      displayName: null
     };
   },
   methods: {
@@ -39,16 +43,19 @@ export default {
     userData() {
       const user = auth.currentUser;
       if (user) {
+
         db.collection("Users")
           .doc(user.uid)
           .get()
           .then(doc => {
-            this.email = doc.data().bio;
+            this.email = user.email
             this.first_name = doc.data().first_name;
             this.last_name = doc.data().last_name;
+            this.displayName = user.displayName;
             this.blood_type = doc.data().blood_type;
             this.years = doc.data().years;
             this.bio = doc.data().bio;
+            console.log(user)
           })
           .catch(function(error) {
             const e = `${error.code} - ${error.message}`;
@@ -59,7 +66,8 @@ export default {
       }
       
     }
-    },
+ 
+  },
    mounted() {
       this.userData();
     }
