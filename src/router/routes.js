@@ -10,9 +10,18 @@ const routes = [{
     path: '/register',
     component: () => import('layouts/RegisterLayout.vue'),
     children: [{
-      path: '',
-      component: () => import('pages/Auth/Register.vue')
-    }]
+        path: '',
+        component: () => import('pages/Auth/Register.vue')
+      },
+      {
+        path: 'step/1',
+        component: () => import('pages/Auth/Steps/StepName.vue')
+      },
+      {
+        path: 'step/2',
+        component: () => import('pages/Auth/Steps/StepBloodType.vue')
+      }
+    ]
   }
 ];
 

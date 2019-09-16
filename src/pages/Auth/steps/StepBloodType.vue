@@ -1,18 +1,11 @@
 <template>
   <div>
     <div class="text-center q-mt-xl">
-      <small class="aswner block full-width">Pergunta 1 / 10</small>
-      <h5>Qual seu nome ?</h5>
+      <small class="aswner block full-width">Pergunta 2 / 10</small>
+      <h5>Qual seu tipo sanguíneo?</h5>
     </div>
     <div class="content absolute-center text-center">
-      <q-input
-        v-model="text"
-        type="text"
-        color="white"
-        maxlength="24"
-        dark
-      />
-
+      <SelectesBlood />
     </div>
     <div class="footer absolute-bottom q-px-lg q-mb-xl">
       <q-btn
@@ -33,9 +26,17 @@
     </div>
   </div>
 </template>
+<script>
+import SelectesBlood from '../../../components/SelectsBlood.vue';
+
+export default {
+
+  components: { SelectesBlood }
+}
+</script>
 <style lang="stylus" scoped>
 .content {
-  min-width: 250px;
+  min-width: 280px;
 }
 
 .aswner {
