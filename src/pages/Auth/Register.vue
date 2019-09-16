@@ -1,86 +1,54 @@
 <template>
-  <div class="container">
-    Register
-    <form id="form" v-on:submit.prevent="singup()">
-        
-      <br><label>E-mail: </label><input type="email" v-model="email" placeholder="email@email.com" />
-      <br><label>Password: </label><input type="password" v-model="password" />
-      <br><label>First Name:</label><input type="text" v-model="first_name" />
-      <br><label>Last Name: </label><input type="text" v-model="last_name" />
-      <br><label>Blood Type: </label><input type="text" v-model="blood_type" />
-      <br><label>Years: </label><input type="text" v-model="years" />
-      <br><label>Your bio: </label><input type="text" v-model="bio" />
-      <br><input type="submit" value="Register" />
-    </form>
+  <div>
+    <header class="q-gutter-lg q-pr-lg q-mt-xs absolute-top text-center full-width">
+
+      <q-icon
+        name="img:statics/layout/back_button.svg"
+        size="38px"
+        color="white"
+        style="float:left"
+      />
+      <h6>iBlood</h6>
+      <q-icon
+        name="close"
+        size="38px"
+        color="white"
+        style="float:right"
+      />
+
+    </header>
+    <div class="content absolute-center">
+      <h4>Bem vindo (a)</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nobis ut quas perferendis repellat facilis expedita unde nostrum culpa quasi iusto adipisci nihil fugit inventore accusamus, quaerat asperiores voluptatem repudiandae!</p>
+      <q-btn
+        rounded
+        text-color="primary"
+        color="white"
+        class="full-width q-mt-xl"
+        label="COMEÇAR"
+        style="height:45px;"
+      />
+    </div>
   </div>
 </template>
+<style lang="stylus" scoped>
+h6 {
+  display: inline-block;
+  vertical-align: middle;
+}
 
-<script>
-import { firebase, db, auth } from "../../config/firebase";
-import Router from "vue-router";
+header span {
+  line-height: 100%;
+  font-weight: 500;
+  display: inline-block;
+}
 
-export default {
-  name: "Register",
-  data() {
-    return {
-      email: null,
-      password: null,
-      first_name: null,
-      last_name: null,
-      blood_type: null,
-      years: null,
-      bio: null
-    };
-  },
-  methods: {
-    updateProfile(){
-       var user = auth.currentUser;
-        if(user){
-       var names = `${this.first_name} ${this.last_name}`
+.content {
+  min-width: 250px;
+}
 
-              user.updateProfile({
-              displayName: names,
-              photoURL: 'https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg'
-          }).then(function() {
-              console.log('Alterado com Sucesso')
-              
-          }).catch(function(error) {
-              const e = `${error.code} - ${error.message}`;
-              console.log(e);
-          })
-        }else this.$router.push('/login')
-    },
-    singup() {
-      auth
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(created => {
-          db.collection("Users")
-            .doc(created.user.uid)
-            .set({
-              first_name: this.first_name,
-              last_name: this.last_name,
-              blood_type: this.blood_type,
-              years: this.years,
-              bio: this.bio
-            });
-            this.updateProfile();
-            this.$router.push("/profile");
-            
-        })
-        .catch(function(error) {
-          const e = `${error.code} - ${error.message}`;
-          console.log(e);
-        });
-    }
-  },
-  mounted() {
-    console.log(firebase);
-  }
-};
-</script>
-
-<style>
-
-
-
+p {
+  text-align: justify;
+  line-height: 30px;
+}
 </style>

@@ -15,6 +15,7 @@ module.exports = function (ctx) {
     ],
 
     extras: [
+      'material-icons-outlined',
       // 'ionicons-v4',
       // 'mdi-v3',
       // 'fontawesome-v5',

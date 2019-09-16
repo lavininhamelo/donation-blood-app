@@ -1,13 +1,17 @@
 <template>
   <div class="form-login full-width text-center">
-    <span
-      id="title-name"
-      class="block full-width q-mb-xl"
-    >Login</span>
+
+    <header class="">
+      <span
+        id="title-name"
+        class="block full-width "
+      >iBlood</span>
+      <small>Doe vida, doe sangue!</small>
+    </header>
     <div class="
+      q-px-xl
       full-width
-      q-px-lg
-      wrapper-border">
+      ">
       <form
         id="form"
         v-on:submit.prevent="login()"
@@ -19,25 +23,76 @@
           label="Email"
           class="q-mb-md"
           bg-color="white"
-          color="#EA5A44"
-        />
+        >
+          <template v-slot:prepend>
+            <q-icon
+              color="primary"
+              name="o_email"
+              size="15px"
+            />
+          </template></q-input>
+
         <q-input
           type="password"
           outlined
           v-model="password"
           label="Senha"
-          color="#EA5A44"
           bg-color="white"
-          class="q-mb-lg wrapper-border"
-        />
+          class="q-mb-md "
+        >
+          <template v-slot:prepend>
+            <q-icon
+              color="primary"
+              name="o_lock"
+              size="15px"
+            />
+          </template>
+        </q-input>
+        <div
+          class="row q-mb-md q-mt-none"
+          style="float:right"
+        >
+
+          <small class="last-pass">Esqueceu a senha?</small>
+        </div>
         <q-btn
           type="submit"
           color="primary"
-          label="ENTRAR"
+          label="Fazer Login"
           class="full-width btn-login wrapper-border"
         />
       </form>
-      <small class="text-subtitle2 q-mt-md block full-width ">Esqueceu sua senha?</small>
+      <div class="donthave row text-center full-width block q-mt-lg">
+        <small>Não possui uma conta? <span>Criar conta</span></small>
+      </div>
+      <div class="q-mt-lg items-center footer-other">
+        <div class="line"></div><span class="q-mx-md">ou</span>
+
+      </div>
+      <div class="row q-gutter-xs q-mt-md">
+
+        <div class="col">
+          <q-icon
+            name="img:statics/layout/facebook.svg"
+            size="32px"
+            class="full-width"
+          />
+        </div>
+        <div class="col">
+          <q-icon
+            name="img:https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            size="30px"
+            class="full-width"
+          />
+        </div>
+        <div class="col">
+          <q-icon
+            name="img:statics/layout/instagram.svg"
+            size="32px"
+            class="full-width"
+          />
+        </div>
+      </div>
     </div>
 
   </div>
@@ -74,36 +129,84 @@ export default {
   }
 };
 </script>
-<style>
-span#title-name {
-  /* Login */
 
+<style lang="stylus">
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.donthave small {
+  color: $text !important;
+  font-weight: bold;
+  font-font-family: Roboto;
+}
+
+div.footer-other span {
+  // display: inline-block;
+  position: absolute;
+  left: calc(50% - (55px / 2));
+  width: 25px;
+  margin-top: 2px;
+  background-color: white;
+  color: $placeholder;
+}
+
+small span {
+  color: $primary;
+  font-weight: 500;
+}
+
+div.line {
+  border: 1px solid $placeholder;
+  width: 100%;
+  height: 1px;
+  display: inline-block;
+}
+
+header {
+  margin-top: 0%;
+  margin-bottom: 30%;
+}
+
+.last-pass {
+  color: $primary;
+  /* ESQUECEU A SENHA? */
   font-family: Roboto;
   font-style: normal;
+  font-weight: 500;
+}
+
+div small {
+  /* Doe vida, doe sangue */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  color: $text;
+}
+
+span#title-name {
+  /* Login */
+  font-family: Roboto;
+  color: $primary;
+  font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 32px;
   /* identical to box height, or 92% */
 }
+
 .btn-login {
-  min-width: 215px !important;
   min-height: 45px !important;
 }
-.q-field__control:before {
-  border-color: #ea5a44 !important;
-}
-.q-field__label {
-  color: #ea5a44 !important;
-}
-.q-layout {
-  position: absolute;
-  background-repeat: no-repeat;
-  background-image: url("../../statics/layout/login/base.svg");
 
-  background-size: 100%;
-  background-color: white !important;
-  bottom: 0;
-  left: 0;
-  top: auto;
-  background-position-y: 100%;
+.q-field__control:before {
+  border-color: $placeholder !important;
+}
+
+.input-blood {
+  max-height: 50px;
+}
+
+.q-field__label {
+  color: $placeholder !important;
 }
 </style>

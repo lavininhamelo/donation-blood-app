@@ -1,32 +1,20 @@
 const routes = [{
-  path: '/',
-  component: () => import('layouts/Default.vue'),
-  children: [{
+    path: '/',
+    component: () => import('layouts/Default.vue'),
+    children: [{
       path: '',
-      component: () => import('pages/Index.vue')
-    },
-
-    {
-      path: 'register',
+      component: () => import('pages/Auth/Login.vue')
+    }]
+  },
+  {
+    path: '/register',
+    component: () => import('layouts/RegisterLayout.vue'),
+    children: [{
+      path: '',
       component: () => import('pages/Auth/Register.vue')
-    },
-    {
-      path: 'profile',
-      component: () => import('pages/User/Profile.vue')
-    },
-    {
-      path: 'update',
-      component: () => import('pages/User/ProfileUpdate.vue')
-    }
-  ]
-}, {
-  path: '/login',
-  component: () => import('layouts/Auth/Layout.vue'),
-  children: [{
-    path: '',
-    component: () => import('pages/Auth/Login.vue')
-  }]
-}]
+    }]
+  }
+];
 
 // Always leave this as last one
 if (process.env.MODE !== 'ssr') {
