@@ -2,7 +2,7 @@
   <div>
     <div class="content absolute-center">
       <h4>Bem vindo (a)</h4>
-      <p>Obrigado por querer ajudar mais pessoas, com isso tornamos o mundo um lugar melhor. Precisaremos fazer algumas perguntas afim de melhorar a experiência no app. Ok?</p>
+      <p>É um grande passo querer ajudar pessoas, com isso tornamos o mundo o lugar melhor. Vamos precisar fazer algumas perguntinhas para preparar o aplicativo para você, ok?</p>
       <q-btn
         rounded
         text-color="primary"
