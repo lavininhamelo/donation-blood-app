@@ -63,7 +63,7 @@
         />
       </form>
       <div class="donthave row text-center full-width block q-mt-lg">
-        <small>Não possui uma conta? <span>Criar conta</span></small>
+        <small>Não possui uma conta? <span @click="$router.push('/register')">Criar conta</span></small>
       </div>
       <div class="q-mt-lg items-center footer-other">
         <div class="line"></div><span class="q-mx-md">ou</span>

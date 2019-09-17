@@ -6,7 +6,7 @@
     </div>
     <div class="content absolute-center text-center">
       <q-input
-        v-model="text"
+        v-model="name"
         type="text"
         color="white"
         maxlength="24"
@@ -22,6 +22,7 @@
         class="full-width q-mt-xl"
         label="PROXIMA"
         style="height:45px;"
+        @click="goToNextStep()"
       >
         <q-icon
           class="absolute-right q-ma-sm"
@@ -33,6 +34,20 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      name: ''
+    }
+  }, methods: {
+    goToNextStep () {
+      //Aqui coloca a commit pra atualiza ra store com o nome
+      this.$router.push('/register/step/2')
+    }
+  }
+}
+</script>
 <style lang="stylus" scoped>
 .content {
   min-width: 250px;

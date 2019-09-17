@@ -10,6 +10,7 @@
         class="full-width q-mt-xl"
         label="COMEÇAR"
         style="height:45px;"
+        @click="$router.push('register/step/1')"
       />
     </div>
   </div>
