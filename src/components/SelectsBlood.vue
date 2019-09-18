@@ -4,7 +4,7 @@
       v-for="blood of bloodTypes"
       :key="blood"
       :value="blood"
-      class="flex inline q-ma-sm"
+      class="flex inline q-ma-sm selected"
     />
   </div>
 </template>
