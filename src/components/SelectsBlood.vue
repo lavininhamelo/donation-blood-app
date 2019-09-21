@@ -25,6 +25,7 @@ export default {
     whenSelecteWasPressed (eventComponent) {
       if (!this.indexSelected) {
         eventComponent.isSelected = true
+        this.indexSelected = eventComponent
       } else if (this.indexSelected.index == eventComponent.index) {
         this.indexSelected = null
         eventComponent.isSelected = false
@@ -32,8 +33,9 @@ export default {
       else {
         this.indexSelected.isSelected = false
         eventComponent.isSelected = true
+        this.indexSelected = eventComponent
       }
-      this.indexSelected = eventComponent
+
     }
   }
 }
