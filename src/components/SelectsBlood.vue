@@ -25,7 +25,11 @@ export default {
     whenSelecteWasPressed (eventComponent) {
       if (!this.indexSelected) {
         eventComponent.isSelected = true
-      } else {
+      } else if (this.indexSelected.index == eventComponent.index) {
+        this.indexSelected = null
+        eventComponent.isSelected = false
+      }
+      else {
         this.indexSelected.isSelected = false
         eventComponent.isSelected = true
       }

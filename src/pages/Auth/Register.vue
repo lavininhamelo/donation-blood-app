@@ -8,7 +8,7 @@
         text-color="primary"
         color="white"
         class="full-width q-mt-xl"
-        label="COMEÇAR"
+        label="INICIAR"
         style="height:45px;"
         @click="$router.push('register/step/1')"
       />

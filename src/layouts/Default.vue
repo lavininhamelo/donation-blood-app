@@ -1,8 +1,7 @@
-<template>
+<template leave-active-class="animated fadeOut">
   <q-layout view="lhr lpr lfr">
     <transition
       name="transitions"
-      leave-active-class="animated fadeOut"
       mode="out-in"
     >
       <q-page-container>
