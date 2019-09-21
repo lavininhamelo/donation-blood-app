@@ -36,7 +36,7 @@
 export default {
   methods: {
     backButton () {
-      this.window.history.back()
+      this.$router.go(-1)
     }
   }
 }

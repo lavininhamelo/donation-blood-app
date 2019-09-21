@@ -1,12 +1,22 @@
 <template>
-  <div class="radio flex items-center justify-center">
+  <div
+    class="radio flex items-center justify-center"
+    :class="{selected:isSelected}"
+    v-on:click="toggleSelected()"
+  >
     <span>{{value}}</span>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['value', 'selected']
+  data () { return { isSelected: false } },
+  props: ['index', 'value'],
+  methods: {
+    toggleSelected () {
+      this.$emit('onSelectedWasClicked', this)
+    }
+  }
 }
 </script>
 
