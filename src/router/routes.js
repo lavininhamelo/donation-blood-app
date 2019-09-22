@@ -35,7 +35,11 @@ const routes = [
       },
       {
         path: "step/success",
-        component: () => import("pages/Auth/Steps/SuccessStep.vue")
+        component: () => import("pages/Auth/Steps/StepSuccess.vue")
+      },
+      {
+        path: "step/error",
+        component: () => import("pages/Auth/Steps/StepError.vue")
       }
     ]
   }
