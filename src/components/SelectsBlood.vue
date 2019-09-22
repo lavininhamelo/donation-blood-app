@@ -12,33 +12,39 @@
 </template>
 
 <script>
-import SelectSquared from './SelectSquared';
+import SelectSquared from "./SelectSquared";
 export default {
-  data () {
+  data() {
     return {
-      'indexSelected': null,
-      'bloodTypes': ['A +', 'A -', 'B +', 'B -', 'AB +', 'AB -', 'O +', 'O -']
-    }
+      indexSelected: null,
+      bloodTypes: ["A +", "A -", "B +", "B -", "AB +", "AB -", "O +", "O -"]
+    };
   },
   components: { SelectSquared },
   methods: {
-    whenSelecteWasPressed (eventComponent) {
+    //When event is emited then att in store.
+    whenSelecteWasPressed(eventComponent) {
       if (!this.indexSelected) {
-        eventComponent.isSelected = true
-        this.indexSelected = eventComponent
+        eventComponent.isSelected = true;
+        this.indexSelected = eventComponent;
+        this.$store.commit("register/setBloodType", eventComponent.value);
       } else if (this.indexSelected.index == eventComponent.index) {
-        this.indexSelected = null
-        eventComponent.isSelected = false
+        this.indexSelected = null;
+        this.$store.commit("register/setBloodType", null);
+        eventComponent.isSelected = false;
+      } else {
+        this.indexSelected.isSelected = false;
+        eventComponent.isSelected = true;
+        this.indexSelected = eventComponent;
+        this.$store.commit("register/setBloodType", eventComponent.value);
       }
-      else {
-        this.indexSelected.isSelected = false
-        eventComponent.isSelected = true
-        this.indexSelected = eventComponent
-      }
-
     }
+  },
+  created: function() {
+    //Force erase old data in store
+    this.$store.commit("register/setBloodType", null);
   }
-}
+};
 </script>
 
 <style>
