@@ -88,8 +88,8 @@ module.exports = function (ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {}, // only for NON InjectManifest
       manifest: {
-        // name: 'iBlood',
-        // short_name: 'iBlood',
+        name: 'iBlood',
+        short_name: 'iBlood',
         // description: ' ',
         display: 'standalone',
         orientation: 'portrait',
@@ -125,7 +125,7 @@ module.exports = function (ctx) {
     },
 
     cordova: {
-      // id: '',
+      id: 'br.com.iblood.app',
       // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
     },
 
