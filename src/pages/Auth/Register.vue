@@ -15,6 +15,14 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  //Erase all data in store to prevent get old data.
+  created: function() {
+    this.$store.dispatch("register/eraseAllData");
+  }
+};
+</script>
 <style lang="stylus" scoped>
 .content {
   min-width: 250px;

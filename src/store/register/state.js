@@ -1,9 +1,9 @@
 export default {
   name: null,
   address: null,
-  kilograms: 0,
+  kilograms: null,
   bloodType: null,
   wantGetNotification: null,
   wantGetUrgencyNotification: null,
   distanceToDonation: null
-}
+};

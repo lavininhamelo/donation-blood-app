@@ -60,13 +60,14 @@ export default {
     validateForm() {
       if (this.kilograms && this.kilograms > 0) {
         return true;
+        
       }
       return false;
     },
     //Go to next page
     goToNextStep() {
       if (this.validateForm()) {
-        this.$router.push("4");
+        this.$router.push("/register/step/4");
       } else {
         this.alert = true;
       }
