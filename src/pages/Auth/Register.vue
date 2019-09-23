@@ -38,7 +38,7 @@ p {
 }
 
 .answer {
-  color: white;
+  color: #F59A8C;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
