@@ -5,7 +5,7 @@
     </div>
     <h5 class="text-center">Você teve alguma infecção nos ultimos 3 meses?</h5>
     <div class="content text-center">
-      <SelectYesOrNo />
+      <SelectYesOrNo mutationName="setHasInfection" />
     </div>
     <div class="footer absolute-bottom q-px-lg q-mb-xl">
       <q-btn

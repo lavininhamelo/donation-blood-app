@@ -14,6 +14,7 @@
 <script>
 import SelectSquared from "./SelectSquared";
 export default {
+  props: ["mutationName"],
   data() {
     return {
       indexSelected: null,
@@ -27,22 +28,28 @@ export default {
       if (!this.indexSelected) {
         eventComponent.isSelected = true;
         this.indexSelected = eventComponent;
-        this.$store.commit("register/setHasInfection", eventComponent.value);
+        this.$store.commit(
+          `register/${this.mutationName}`,
+          eventComponent.value
+        );
       } else if (this.indexSelected.index == eventComponent.index) {
         this.indexSelected = null;
-        this.$store.commit("register/setHasInfection", null);
+        this.$store.commit(`register/${this.mutationName}`, null);
         eventComponent.isSelected = false;
       } else {
         this.indexSelected.isSelected = false;
         eventComponent.isSelected = true;
         this.indexSelected = eventComponent;
-        this.$store.commit("register/setHasInfection", eventComponent.value);
+        this.$store.commit(
+          `register/${this.mutationName}`,
+          eventComponent.value
+        );
       }
     }
   },
   created: function() {
     //Force erase old data in store
-    this.$store.commit("register/setHasInfection", null);
+    this.$store.commit(`register/${this.mutationName}`, null);
   }
 };
 </script>
