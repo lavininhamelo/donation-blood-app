@@ -1,14 +1,15 @@
 <template>
   <div>
-    <div class="text-center q-mt-xl">
+    <div class="text-center q-mt-lg">
       <small class="answer block full-width" style="color: #F59A8C;">Pergunta 3 / 10</small>
-      <h5>Quanto KG você pesa, aproximadamente?</h5>
     </div>
+    <h5 class="text-center">Quantos KG você pesa, atualmente?</h5>
+
     <form @submit.prevent="goToNextStep">
-      <div class="content absolute-center text-center">
+      <div class="content text-center">
         <q-input type="number" v-model="kilograms" color="white" maxlength="24" suffix="KG" dark />
       </div>
-      <div class="footer absolute-bottom q-px-lg q-mb-xl">
+      <div class="footer absolute-bottom q-px-lg q-mb-lg">
         <q-btn
           type="submit"
           rounded
@@ -17,7 +18,6 @@
           class="full-width q-mt-xl"
           label="PROXIMA"
           style="height:45px;"
-          @click="goToNextStep()"
         >
           <q-icon class="absolute-right q-ma-sm" name="keyboard_arrow_right" size="30px" />
         </q-btn>
@@ -60,7 +60,6 @@ export default {
     validateForm() {
       if (this.kilograms && this.kilograms > 0) {
         return true;
-        
       }
       return false;
     },
@@ -75,18 +74,3 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-.content {
-  min-width: 250px;
-}
-
-.answer {
-  color: white;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 22px;
-  text-transform: uppercase;
-}
-</style>

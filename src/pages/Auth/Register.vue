@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="content absolute-center">
-      <h4>Bem vindo (a)</h4>
+      <h5>Bem vindo (a)</h5>
       <p>É um grande passo querer ajudar pessoas, com isso tornamos o mundo o lugar melhor. Vamos precisar fazer algumas perguntinhas para preparar o aplicativo para você, ok?</p>
       <q-btn
         rounded
@@ -31,5 +31,15 @@ export default {
 p {
   text-align: justify;
   line-height: 30px;
+}
+
+.answer {
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+  text-transform: uppercase;
 }
 </style>

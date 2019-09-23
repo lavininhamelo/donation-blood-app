@@ -18,3 +18,6 @@ export const setWantGetUrgencyNotification = (state, value) => {
 export const setDistanceToDonation = (state, value) => {
   state.distanceToDonation = value;
 };
+export const setHasInfection = (state, value) => {
+  state.hasInfection = value;
+};

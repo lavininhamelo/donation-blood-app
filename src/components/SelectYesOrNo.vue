@@ -1,9 +1,9 @@
 <template>
   <div>
     <SelectSquared
-      v-for="(blood,index) of bloodTypes"
+      v-for="(option,index) of options"
       :key="index"
-      :value="blood"
+      :value="(option) ? 'Sim' : 'Não'"
       :index="index"
       v-on:onSelectedWasClicked="whenSelecteWasPressed($event)"
       class="inline q-ma-xs"
@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       indexSelected: null,
-      bloodTypes: ["A +", "A -", "B +", "B -", "AB +", "AB -", "O +", "O -"]
+      options: [true, false]
     };
   },
   components: { SelectSquared },
@@ -27,22 +27,22 @@ export default {
       if (!this.indexSelected) {
         eventComponent.isSelected = true;
         this.indexSelected = eventComponent;
-        this.$store.commit("register/setBloodType", eventComponent.value);
+        this.$store.commit("register/setHasInfection", eventComponent.value);
       } else if (this.indexSelected.index == eventComponent.index) {
         this.indexSelected = null;
-        this.$store.commit("register/setBloodType", null);
+        this.$store.commit("register/setHasInfection", null);
         eventComponent.isSelected = false;
       } else {
         this.indexSelected.isSelected = false;
         eventComponent.isSelected = true;
         this.indexSelected = eventComponent;
-        this.$store.commit("register/setBloodType", eventComponent.value);
+        this.$store.commit("register/setHasInfection", eventComponent.value);
       }
     }
   },
   created: function() {
     //Force erase old data in store
-    this.$store.commit("register/setBloodType", null);
+    this.$store.commit("register/setHasInfection", null);
   }
 };
 </script>

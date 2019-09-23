@@ -1,20 +1,20 @@
 <template>
   <div>
-    <div class="text-center q-mt-xl">
+    <div class="text-center q-mt-lg">
       <small class="answer block full-width" style="color: #F59A8C;">Pergunta 2 / 10</small>
-      <h5>Qual seu tipo sanguíneo?</h5>
     </div>
+    <h5 class="text-center">Qual seu tipo sanguíneo ?</h5>
     <form @submit.prevent="goToNextStep">
-      <div class="content absolute-center text-center">
+      <div class="content">
         <SelectesBlood />
       </div>
-      <div class="footer absolute-bottom q-px-lg q-mb-xl">
+      <div class="footer absolute-bottom q-px-lg q-mb-lg">
         <q-btn
           type="submit"
           rounded
           text-color="primary"
           color="white"
-          class="full-width q-mt-xl"
+          class="full-width"
           label="PROXIMA"
           style="height:45px;"
         >
@@ -73,18 +73,3 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
-.content {
-  min-width: 280px;
-}
-
-.answer {
-  color: white;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 22px;
-  text-transform: uppercase;
-}
-</style>

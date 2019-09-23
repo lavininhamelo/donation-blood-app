@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="text-center q-mt-xl">
+    <div class="text-center q-mt-lg">
       <small class="answer block full-width" style="color: #F59A8C;">Pergunta 1 / 10</small>
-      <h5>Qual seu nome ?</h5>
     </div>
+    <h5 class="text-center">Qual seu nome ?</h5>
     <form @submit.prevent="goToNextStep">
       <div class="content absolute-center text-center">
         <q-input v-model="name" type="text" color="white" maxlength="24" dark />

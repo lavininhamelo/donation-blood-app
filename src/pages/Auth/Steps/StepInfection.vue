@@ -1,20 +1,11 @@
 <template>
   <div>
-    <div class="text-center q-mt-xl">
-      <small
-        class="answer block full-width"
-        style="color: #F59A8C;"
-      >Pergunta 1 / 10</small>
-      <h5>Você teve alguma infecção nos ultimos 3 meses?</h5>
+    <div class="text-center q-mt-lg">
+      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 4 / 10</small>
     </div>
-    <div class="content absolute-center text-center">
-      <q-select
-        filled
-        v-model="name"
-        :options="options"
-        label="Resposta"
-        dark
-      />
+    <h5 class="text-center">Você teve alguma infecção nos ultimos 3 meses?</h5>
+    <div class="content text-center">
+      <SelectYesOrNo />
     </div>
     <div class="footer absolute-bottom q-px-lg q-mb-xl">
       <q-btn
@@ -26,46 +17,58 @@
         style="height:45px;"
         @click="goToNextStep()"
       >
-        <q-icon
-          class="absolute-right q-ma-sm"
-          name="keyboard_arrow_right"
-          size="30px"
-        />
+        <q-icon class="absolute-right q-ma-sm" name="keyboard_arrow_right" size="30px" />
       </q-btn>
     </div>
+    <q-dialog v-model="alert">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Error!</div>
+        </q-card-section>
+
+        <q-card-section>Por favor, selecione se você teve alguma infecção.</q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="OK" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 <script>
+import SelectYesOrNo from "../../../components/SelectYesOrNo";
 export default {
-  data () {
+  components: { SelectYesOrNo },
+  data() {
     return {
+      alert: false,
       name: "",
-      options: [
-        'Sim', 'Não'
-      ]
-
+      options: ["Sim", "Não"]
     };
   },
+  computed: {
+    hasInfection: {
+      get() {
+        return this.$store.state.register.hasInfection;
+      }
+    }
+  },
   methods: {
-    goToNextStep () {
-      //Aqui coloca a commit pra atualiza ra store com o nome
-      this.$router.push("/register/step/2");
+    validateForm() {
+      if (this.hasInfection) {
+        return true;
+      }
+      return false;
+    },
+    //Go to next page
+    goToNextStep() {
+      if (this.validateForm()) {
+        this.$router.push("/register/step/5");
+      } else {
+        this.alert = true;
+      }
     }
   }
 };
 </script>
-<style lang="stylus" scoped>
-.content {
-  min-width: 250px;
-}
 
-.answer {
-  color: white;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 22px;
-  text-transform: uppercase;
-}
-</style>

@@ -10,14 +10,16 @@
 
 <script>
 export default {
-  data () { return { isSelected: false } },
-  props: ['index', 'value'],
+  data() {
+    return { isSelected: false };
+  },
+  props: ["index", "value"],
   methods: {
-    toggleSelected () {
-      this.$emit('onSelectedWasClicked', this)
+    toggleSelected() {
+      this.$emit("onSelectedWasClicked", this);
     }
   }
-}
+};
 </script>
 
 <style lang="stylus">
@@ -28,8 +30,8 @@ export default {
 
 div.radio {
   font-weight: bold;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border: 2px solid #fff;
   border-radius: 3px;
   -webkit-appearance: none;
