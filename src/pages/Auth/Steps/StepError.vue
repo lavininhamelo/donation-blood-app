@@ -27,18 +27,5 @@
     </div>
   </div>
 </template>
-<style lang="stylus" scoped>
-.content {
-  min-width: 250px;
-}
 
-h4 {
-  font-size: 25pt;
-}
-
-p {
-  text-align: justify;
-  line-height: 30px;
-}
-</style>
   

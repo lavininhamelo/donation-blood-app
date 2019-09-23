@@ -1,25 +1,27 @@
 <template>
   <div>
     <div class="text-center q-mt-lg">
-      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 4 / 10</small>
+      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 2 / 10</small>
     </div>
     <h5 class="text-center">Você teve alguma infecção nos ultimos 3 meses?</h5>
-    <div class="content text-center">
-      <SelectYesOrNo mutationName="setHasInfection" />
-    </div>
-    <div class="footer absolute-bottom q-px-lg q-mb-xl">
-      <q-btn
-        rounded
-        text-color="primary"
-        color="white"
-        class="full-width q-mt-xl"
-        label="PROXIMA"
-        style="height:45px;"
-        @click="goToNextStep()"
-      >
-        <q-icon class="absolute-right q-ma-sm" name="keyboard_arrow_right" size="30px" />
-      </q-btn>
-    </div>
+    <form @submit.prevent="goToNextStep">
+      <div class="content text-center">
+        <Selects mutationName="setHasInfection" :options="options" />
+      </div>
+      <div class="footer absolute-bottom q-px-lg q-mb-lg">
+        <q-btn
+          type="submit"
+          rounded
+          text-color="primary"
+          color="white"
+          class="full-width"
+          label="PROXIMA"
+          style="height:45px;"
+        >
+          <q-icon class="absolute-right q-ma-sm" name="keyboard_arrow_right" size="30px" />
+        </q-btn>
+      </div>
+    </form>
     <q-dialog v-model="alert">
       <q-card>
         <q-card-section>
@@ -36,29 +38,31 @@
   </div>
 </template>
 <script>
-import SelectYesOrNo from "../../../components/SelectYesOrNo";
+import Selects from "../../../components/Selects.vue";
+
 export default {
-  components: { SelectYesOrNo },
+  components: { Selects },
   data() {
     return {
       alert: false,
-      name: "",
-      options: ["Sim", "Não"]
+      options: [{ value: true, name: "Sim" }, { value: false, name: "Não" }]
     };
   },
   computed: {
-    hasInfection: {
+    yesOrNo: {
       get() {
         return this.$store.state.register.hasInfection;
       }
     }
   },
   methods: {
+    //Method to validate our form.
     validateForm() {
-      if (this.hasInfection) {
+      if (this.yesOrNo == null) {
+        return false;
+      } else if (this.yesOrNo === true || this.yesOrNo === false) {
         return true;
       }
-      return false;
     },
     //Go to next page
     goToNextStep() {
@@ -71,4 +75,3 @@ export default {
   }
 };
 </script>
-

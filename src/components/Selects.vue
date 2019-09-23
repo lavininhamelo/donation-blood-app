@@ -3,9 +3,9 @@
     <SelectSquared
       v-for="(option,index) of options"
       :key="index"
-      :value="(option) ? 'Sim' : 'Não'"
+      :value="(option.name)"
       :index="index"
-      v-on:onSelectedWasClicked="whenSelecteWasPressed($event)"
+      v-on:onSelectedWasClicked="whenSelecteWasPressed($event,option.value)"
       class="inline q-ma-xs"
     />
   </div>
@@ -14,24 +14,20 @@
 <script>
 import SelectSquared from "./SelectSquared";
 export default {
-  props: ["mutationName"],
+  props: ["mutationName", "options"],
   data() {
     return {
-      indexSelected: null,
-      options: [true, false]
+      indexSelected: null
     };
   },
   components: { SelectSquared },
   methods: {
     //When event is emited then att in store.
-    whenSelecteWasPressed(eventComponent) {
+    whenSelecteWasPressed(eventComponent, value) {
       if (!this.indexSelected) {
         eventComponent.isSelected = true;
         this.indexSelected = eventComponent;
-        this.$store.commit(
-          `register/${this.mutationName}`,
-          eventComponent.value
-        );
+        this.$store.commit(`register/${this.mutationName}`, value);
       } else if (this.indexSelected.index == eventComponent.index) {
         this.indexSelected = null;
         this.$store.commit(`register/${this.mutationName}`, null);
@@ -40,10 +36,7 @@ export default {
         this.indexSelected.isSelected = false;
         eventComponent.isSelected = true;
         this.indexSelected = eventComponent;
-        this.$store.commit(
-          `register/${this.mutationName}`,
-          eventComponent.value
-        );
+        this.$store.commit(`register/${this.mutationName}`, value);
       }
     }
   },

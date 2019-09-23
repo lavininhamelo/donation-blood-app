@@ -6,7 +6,7 @@
     <h5 class="text-center">Qual seu tipo sanguíneo ?</h5>
     <form @submit.prevent="goToNextStep">
       <div class="content">
-        <SelectesBlood />
+        <Selects mutationName="setBloodType" :options="bloodTypes" />
       </div>
       <div class="footer absolute-bottom q-px-lg q-mb-lg">
         <q-btn
@@ -38,13 +38,23 @@
   </div>
 </template>
 <script>
-import SelectesBlood from "../../../components/SelectsBlood.vue";
+import Selects from "../../../components/Selects.vue";
 
 export default {
-  components: { SelectesBlood },
+  components: { Selects },
   data() {
     return {
-      alert: false
+      alert: false,
+      bloodTypes: [
+        { value: "A +", name: "A +" },
+        { value: "A -", name: "A -" },
+        { value: "B +", name: "B +" },
+        { value: "B -", name: "B -" },
+        { value: "AB +", name: "AB +" },
+        { value: "AB -", name: "AB -" },
+        { value: "O +", name: "O +" },
+        { value: "O -", name: "O -" }
+      ]
     };
   },
   computed: {
