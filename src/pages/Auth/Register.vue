@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content absolute-center">
+    <div class="content register absolute-center">
       <h5>Bem vindo (a)</h5>
       <p>É um grande passo querer ajudar pessoas, com isso tornamos o mundo o lugar melhor. Vamos precisar fazer algumas perguntinhas para preparar o aplicativo para você, ok?</p>
       <q-btn
@@ -26,6 +26,10 @@ export default {
 <style lang="stylus">
 .content {
   text-align: center !important;
+}
+
+.register {
+  min-width: 250px;
 }
 
 p {
