@@ -30,8 +30,8 @@ export default {
 
 div.radio {
   font-weight: bold;
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   border: 2px solid #fff;
   border-radius: 3px;
   -webkit-appearance: none;

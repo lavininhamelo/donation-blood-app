@@ -5,6 +5,6 @@ export default {
   bloodType: null,
   hasInfection: null,
   wantGetNotification: null,
-  wantGetUrgencyNotification: null,
+  wantShareData: null,
   distanceToDonation: null
 };

@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="text-center q-mt-lg">
-      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 5 / 10</small>
+      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 7 / 10</small>
     </div>
-    <h5 class="text-center">O quanto você está disposto a ir para salvar uma vida?</h5>
+    <h5 class="text-center">Deseja compartilhar suas informações com a gente?</h5>
     <form @submit.prevent="goToNextStep">
       <div class="content text-center">
-        <Selects mutationName="setDistanceToDonation" :options="options" />
+        <Selects mutationName="setWantShareData" :options="options" />
       </div>
       <div class="footer absolute-bottom q-px-lg q-mb-lg">
         <q-btn
@@ -45,33 +45,29 @@ export default {
   data() {
     return {
       alert: false,
-      options: [
-        { value: "high", name: "Longe" },
-        { value: "medium", name: "Médio" },
-        { value: "low", name: "Perto" }
-      ]
+      options: [{ value: true, name: "Sim" }, { value: false, name: "Não" }]
     };
   },
   computed: {
-    distance: {
+    shareData: {
       get() {
-        return this.$store.state.register.distanceToDonation;
+        return this.$store.state.register.wantShareData;
       }
     }
   },
   methods: {
     //Method to validate our form.
     validateForm() {
-      if (this.distance != null) {
-        return true;
-      } else {
+      if (this.shareData == null) {
         return false;
+      } else if (this.shareData === true || this.shareData === false) {
+        return true;
       }
     },
     //Go to next page
     goToNextStep() {
       if (this.validateForm()) {
-        this.$router.push("/register/step/6");
+        this.$router.push("/register/step/confirm");
       } else {
         this.alert = true;
       }
@@ -79,4 +75,3 @@ export default {
   }
 };
 </script>
-

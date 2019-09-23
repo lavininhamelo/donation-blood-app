@@ -34,6 +34,18 @@ const routes = [
         component: () => import("pages/Auth/Steps/StepInfection.vue")
       },
       {
+        path: "step/5",
+        component: () => import("pages/Auth/Steps/StepDistance.vue")
+      },
+      {
+        path: "step/6",
+        component: () => import("pages/Auth/Steps/StepWantGetNotification.vue")
+      },
+      {
+        path: "step/7",
+        component: () => import("pages/Auth/Steps/StepShareData.vue")
+      },
+      {
         path: "step/success",
         component: () => import("pages/Auth/Steps/StepSuccess.vue")
       },

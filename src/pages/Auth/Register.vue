@@ -23,9 +23,9 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 .content {
-  min-width: 250px;
+  text-align: center !important;
 }
 
 p {
@@ -41,5 +41,9 @@ p {
   font-size: 12px;
   line-height: 22px;
   text-transform: uppercase;
+}
+
+h5 {
+  font-size: 18pt;
 }
 </style>

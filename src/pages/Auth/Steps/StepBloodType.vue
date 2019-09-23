@@ -5,7 +5,7 @@
     </div>
     <h5 class="text-center">Qual seu tipo sanguíneo ?</h5>
     <form @submit.prevent="goToNextStep">
-      <div class="content">
+      <div class="content text-center">
         <Selects mutationName="setBloodType" :options="bloodTypes" />
       </div>
       <div class="footer absolute-bottom q-px-lg q-mb-lg">

@@ -11,8 +11,8 @@ export const setWantGetNotification = (state, value) => {
   state.wantGetNotification = value;
 };
 
-export const setWantGetUrgencyNotification = (state, value) => {
-  state.wantGetUrgencyNotification = value;
+export const setWantShareData = (state, value) => {
+  state.wantShareData = value;
 };
 
 export const setDistanceToDonation = (state, value) => {
