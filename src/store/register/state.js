@@ -1,4 +1,5 @@
 export default {
+  totalAswners: 7,
   name: null,
   address: null,
   kilograms: null,

@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="text-center q-mt-lg">
-      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 3 / 10</small>
+      <small
+        class="answer block full-width"
+        style="color: #F59A8C;"
+      >Pergunta 3 / {{this.$store.state.register.totalAswners}}</small>
     </div>
     <h5 class="text-center">Quantos KG você pesa, atualmente?</h5>
 

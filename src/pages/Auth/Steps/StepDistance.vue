@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="text-center q-mt-lg">
-      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 5 / 10</small>
+      <small
+        class="answer block full-width"
+        style="color: #F59A8C;"
+      >Pergunta 5 / {{this.$store.state.register.totalAswners}}</small>
     </div>
     <h5 class="text-center">O quanto você está disposto a ir para salvar uma vida?</h5>
     <form @submit.prevent="goToNextStep">

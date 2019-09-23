@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center q-mt-lg">
-      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 1 / 10</small>
+      <small class="answer block full-width" style="color: #F59A8C;">Pergunta 1 / {{this.$store.state.register.totalAswners}}</small>
     </div>
     <h5 class="text-center">Qual seu nome ?</h5>
     <form @submit.prevent="goToNextStep">
