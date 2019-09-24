@@ -73,7 +73,7 @@ export default {
         if (this.$store.getters["register/getReasonReject"].length > 0) {
           this.$router.push("/register/step/error");
         } else {
-          this.$router.push("register/step/success");
+          this.$router.push("/register/step/success");
         }
       } else {
         this.alert = true;
