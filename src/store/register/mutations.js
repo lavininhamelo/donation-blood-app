@@ -14,7 +14,6 @@ export const setWantGetNotification = (state, value) => {
 export const setWantShareData = (state, value) => {
   state.wantShareData = value;
 };
-
 export const setDistanceToDonation = (state, value) => {
   state.distanceToDonation = value;
 };
