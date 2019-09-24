@@ -1,6 +1,8 @@
 export default {
   totalAswners: 7,
   name: null,
+  email: null,
+  password: null,
   address: null,
   kilograms: null,
   bloodType: null,

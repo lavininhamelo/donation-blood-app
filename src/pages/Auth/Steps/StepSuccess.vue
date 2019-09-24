@@ -10,7 +10,7 @@
         text-color="primary"
         color="white"
         class="full-width q-mt-xl"
-        label="Doar"
+        label="Continuar"
         style="height:45px;"
       >
         <q-icon class="absolute-right q-ma-sm" name="keyboard_arrow_right" size="30px" />
@@ -18,6 +18,9 @@
     </div>
   </div>
 </template>
+<script>
+export default {};
+</script>
 <style lang="stylus" scoped>
 .content {
   min-width: 250px;

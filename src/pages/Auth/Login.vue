@@ -40,23 +40,25 @@
           <span @click="$router.push('/register')">Criar conta</span>
         </small>
       </div>
-      <div class="q-mt-lg items-center footer-other">
-        <div class="line"></div>
-        <span class="q-mx-md">ou</span>
-      </div>
-      <div class="row q-gutter-xs q-mt-md items-center">
-        <div class="col">
-          <q-icon name="img:statics/layout/facebook.svg" size="32px" class="full-width" />
+      <div>
+        <div class="q-mt-lg items-center footer-other">
+          <div class="line"></div>
+          <span class="q-mx-md">ou</span>
         </div>
-        <div class="col">
-          <q-icon
-            name="img:https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            size="23px"
-            class="full-width"
-          />
-        </div>
-        <div class="col">
-          <q-icon name="img:statics/layout/instagram.svg" size="32px" class="full-width" />
+        <div class="row q-gutter-xs q-mt-md items-center">
+          <div class="col">
+            <q-icon name="img:statics/layout/facebook.svg" size="32px" class="full-width" />
+          </div>
+          <div class="col">
+            <q-icon
+              name="img:https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              size="23px"
+              class="full-width"
+            />
+          </div>
+          <div class="col">
+            <q-icon name="img:statics/layout/instagram.svg" size="32px" class="full-width" />
+          </div>
         </div>
       </div>
     </div>

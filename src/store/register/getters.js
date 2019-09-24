@@ -1,3 +1,4 @@
+//Rules to reject
 export const getReasonReject = state => {
   let allReasons = [];
   if (state.kilograms < 50) {

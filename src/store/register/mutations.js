@@ -21,3 +21,9 @@ export const setDistanceToDonation = (state, value) => {
 export const setHasInfection = (state, value) => {
   state.hasInfection = value;
 };
+export const setEmail = (state, value) => {
+  state.email = value;
+};
+export const setPassword = (state, value) => {
+  state.password = value;
+};

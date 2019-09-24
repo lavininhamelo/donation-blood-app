@@ -50,6 +50,14 @@ const routes = [
         component: () => import("pages/Auth/Steps/StepSuccess.vue")
       },
       {
+        path: "step/success/email",
+        component: () => import("pages/Auth/Steps/StepEmail.vue")
+      },
+      {
+        path: "step/success/password",
+        component: () => import("pages/Auth/Steps/StepPassword.vue")
+      },
+      {
         path: "step/error",
         component: () => import("pages/Auth/Steps/StepError.vue")
       }

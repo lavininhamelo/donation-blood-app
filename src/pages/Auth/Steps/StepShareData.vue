@@ -70,7 +70,11 @@ export default {
     //Go to next page
     goToNextStep() {
       if (this.validateForm()) {
-        this.$router.push("/register/step/confirm");
+        if (this.$store.getters["register/getReasonReject"].length > 0) {
+          this.$router.push("/register/step/error");
+        } else {
+          this.$router.push("register/step/success");
+        }
       } else {
         this.alert = true;
       }
