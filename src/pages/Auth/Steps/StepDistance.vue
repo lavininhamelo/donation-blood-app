@@ -59,6 +59,9 @@ export default {
     distance: {
       get() {
         return this.$store.state.register.distanceToDonation;
+      },
+      set(value) {
+        this.$store.commit("register/setDistanceToDonation", value);
       }
     }
   },

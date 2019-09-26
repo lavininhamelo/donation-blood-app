@@ -6,10 +6,11 @@
     <h5 class="text-center">Por favor, insira sua senha:</h5>
     <form @submit.prevent="goToNextStep">
       <div class="content absolute-center text-center">
-        <q-input v-model="name" type="password" color="white" maxlength="24" dark />
+        <q-input v-model="password" type="password" color="white" maxlength="24" dark />
       </div>
       <div class="footer absolute-bottom q-px-lg q-mb-xl">
         <q-btn
+          :disabled="isSending"
           rounded
           type="submit"
           text-color="primary"
@@ -38,27 +39,42 @@
   </div>
 </template>
 <script>
-import { firebase, db, auth } from "../../../config/firebase";
+import { mapGetters } from "vuex";
+
 export default {
   data() {
     return {
-      alert: false
+      alert: false,
+      sending: false
     };
   },
   computed: {
-    name: {
+    ...mapGetters("register", [
+      "name",
+      "email",
+      "address",
+      "kilograms",
+      "bloodType",
+      "hasInfection",
+      "wantGetNotification",
+      "wantShareData"
+    ]),
+    password: {
       get() {
-        return this.$store.state.register.name;
+        return this.$store.state.register.password;
       },
       set(value) {
-        this.$store.commit("register/setName", value);
+        this.$store.commit("register/setPassword", value);
       }
+    },
+    isSending() {
+      return this.sending;
     }
   },
   methods: {
     //Method to validate our form.
     validateForm() {
-      if (this.name && this.name.length > 3) {
+      if (this.password && this.password > 3) {
         return true;
       }
       return false;
@@ -66,7 +82,26 @@ export default {
     //Go to next page
     goToNextStep() {
       if (this.validateForm()) {
-        //Now get information and send to firebase
+        this.sending = true;
+        this.$store
+          .dispatch("register/signUp", {
+            name: this.name,
+            password: this.password,
+            email: this.email,
+            address: this.address,
+            kilograms: this.kilograms,
+            bloodType: this.bloodType,
+            hasInfection: this.hasInfection,
+            wantGetNotification: this.wantGetNotification,
+            wantShareData: this.wantShareData
+          })
+          .then(() => {
+            console.log("Usuario Criado com sucesso.");
+            this.sending = false;
+          })
+          .catch(e => {
+            console.log(e);
+          });
       } else {
         this.alert = true;
       }

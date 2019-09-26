@@ -27,11 +27,14 @@ export default {
     infection() {
       let cause = "";
       this.$store.getters["register/getReasonReject"].forEach(element => {
+        if (cause.length > 0) {
+          cause += ", ";
+        }
         if (element == "kilograms") {
           cause += "seu peso está abaixo de 50 kilogramas";
         }
         if (element == "hasInfection") {
-          cause += ", você teve alguma infecção nos ultimos 3 meses";
+          cause += "você teve alguma infecção nos ultimos 3 meses";
         }
       });
       return cause;
@@ -50,8 +53,5 @@ export default {
 }
 p {
   text-align: justify;
-}
-.let:before {
-  border: 1px solid rgb(255, 255, 255) !important;
 }
 </style>

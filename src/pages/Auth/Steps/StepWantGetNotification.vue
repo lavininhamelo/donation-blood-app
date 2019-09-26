@@ -9,7 +9,7 @@
     <h5 class="text-center">Deseja receber notificações de doações urgentes?</h5>
     <form @submit.prevent="goToNextStep">
       <div class="content text-center">
-        <Selects mutationName="setDistanceToDonation" :options="options" />
+        <Selects mutationName="setWantGetNotification" :options="options" />
       </div>
       <div class="footer absolute-bottom q-px-lg q-mb-lg">
         <q-btn
@@ -54,7 +54,10 @@ export default {
   computed: {
     distance: {
       get() {
-        return this.$store.state.register.distanceToDonation;
+        return this.$store.state.register.wantGetNotification;
+      },
+      set(value) {
+        this.$store.commit("register/setWantGetNotification", value);
       }
     }
   },
