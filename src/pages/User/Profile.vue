@@ -1,5 +1,13 @@
 <template>
   <div class="container" v-bind:style="{height: this.$q.screen.height+'px'}">
+
+<div   v-touch-pan.vertical.prevent.mouse="handlePan"
+      class="text-white teste " :style="{ top: currentPosition+'px'}"
+    >
+
+
+    </div>
+
     <div class="header" v-bind:style="{height: this.$q.screen.height*0.6+'px'}">
       <div class="img">
         <img
@@ -87,7 +95,7 @@
     <p>{{email}}</p>
     <p>{{bio}}</p> -->
     </div>
-    <div class="content">
+    <div class="content teste" :style="{ top: currentPosition+'px'}" v-touch-pan.vertical.prevent.mouse="handlePan">
       <div class="menu">
       <div class="tab-name">doe sangue</div>
       <div class="tab-name">minhas doações</div>
@@ -107,6 +115,9 @@ export default {
   name: "Profile",
   data () {
     return {
+      info: null,
+      panning: false,
+      currentPosition: this.$q.screen.height*0.80,
       email: auth.currentUser.email,
       first_name: null,
       last_name: null,
@@ -118,11 +129,28 @@ export default {
     };
   },
   methods: {
+     handlePan ({ evt, ...info }) {
+      this.info = info
+      console.log(this.currentPosition)
+       this.currentPosition =  info.position.top;
+
+
+
+      // native Javascript event
+      // console.log(evt)
+
+      if (info.isFirst) {
+        this.panning = true
+      }
+      else if (info.isFinal) {
+        this.panning = false
+      }
+    },
     logout () {
       const r = this;
       auth
         .signOut()
-        .then(() => r.$router.push("/login"))
+        .then(() => r.$router.push("/"))
         .catch(function (error) {
           const e = `${error.code} - ${error.message}`;
           console.log(e);
@@ -150,7 +178,7 @@ export default {
             console.log(e);
           });
       } else {
-        this.$router.push("/login");
+        this.$router.push("/");
       }
 
     }
@@ -165,6 +193,15 @@ export default {
 
 </script>
 <style lang="stylus" scoped>
+
+.teste{
+
+  width: 600px;
+  height: 600px;
+  position: absolute;
+
+}
+
 .container {
   background: #EA5A44;
   background: #E3391F;
