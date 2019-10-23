@@ -62,7 +62,11 @@ const routes = [
         component: () => import("pages/Auth/Steps/StepError.vue")
       }
     ]
-  }
+  },
+  {path: "/profile",
+    component: () => import("pages/User/Profile.vue")},
+    {path: "/teste",
+    component: () => import("pages/User/Teste.vue")},
 ];
 
 // Always leave this as last one
