@@ -8,6 +8,7 @@
 
     </div>
 
+   <div id="information_header" style="opacity:1">
     <div class="header" v-bind:style="{height: this.$q.screen.height*0.6+'px'}">
       <div class="img">
         <img
@@ -87,21 +88,16 @@
       </div>
 
     </div>
-    <div class="escondida">
-      <!-- Profile
-    <a href="#" @click="logout()">Logout</a>
-    <img :src="imageProfile" width="100">
-    <p>{{first_name}} {{last_name}}, {{years}}, {{blood_type}}</p>
-    <p>{{email}}</p>
-    <p>{{bio}}</p> -->
-    </div>
+     </div>
+  
+ 
     <div class="content teste" :style="{ top: currentPosition+'px'}" v-touch-pan.vertical.prevent.mouse="handlePan">
       <div class="menu">
       <div class="tab-name">doe sangue</div>
       <div class="tab-name">minhas doações</div>
       <div class="tab-name">locais</div>
     </div>
-    <div class="card" v-bind:style="{height: this.$q.screen.height*0.8+'px'}"></div>
+    <div class="card" v-bind:style="{height: this.$q.screen.height*2.8+'px'}"></div>
     </div>
 
   </div>
@@ -130,22 +126,16 @@ export default {
   },
   methods: {
      handlePan ({ evt, ...info }) {
-      this.info = info
-      console.log(this.currentPosition)
-       this.currentPosition =  info.position.top;
+       let marginBottom = 100
+       let {y} = info.offset
+     this.currentPosition = info.position.top
+       if(this.currentPosition  <= 0 ){
+        this.currentPosition = 0
+       } else if(this.currentPosition >= this.$q.screen.height - marginBottom){
+         this.currentPosition = this.$q.screen.height - marginBottom
+       }
 
-
-
-      // native Javascript event
-      // console.log(evt)
-
-      if (info.isFirst) {
-        this.panning = true
-      }
-      else if (info.isFinal) {
-        this.panning = false
-      }
-    },
+       },
     logout () {
       const r = this;
       auth
@@ -199,7 +189,7 @@ export default {
   width: 600px;
   height: 600px;
   position: absolute;
-
+  background-color:#9b3;
 }
 
 .container {

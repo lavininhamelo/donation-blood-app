@@ -17,8 +17,8 @@ module.exports = function (ctx) {
     extras: [
       'material-icons-outlined',
       // 'ionicons-v4',
-       'mdi-v3',
-       'fontawesome-v5',
+      // 'mdi-v3',
+      // 'fontawesome-v5',
       // 'eva-icons',
       // 'themify',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
@@ -46,8 +46,7 @@ module.exports = function (ctx) {
         'QList',
         'QItem',
         'QItemSection',
-        'QItemLabel',
-        'QSlideItem'
+        'QItemLabel'
       ],
 
       directives: [
