@@ -57,7 +57,7 @@
       </div>
     </div>
     <div
-      class="content teste"
+      class="content panel"
       :style="{ top: currentPosition+'px'}"
       v-touch-pan.vertical.prevent.mouse="handlePan"
       ref="contentPanel"
@@ -201,11 +201,12 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-.teste {
+
+
+.panel {
   width: 600px;
   height: 600px;
   position: absolute;
-  background-color: blue;
 }
 
 .container {
@@ -331,6 +332,17 @@ export default {
   width: 85%;
   justify-content: flex-start;
   overflow: auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255,0,0,0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 .badges .bcards .bcard {
