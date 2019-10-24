@@ -13,7 +13,7 @@ module.exports = function(ctx) {
       "material-icons-outlined",
       // 'ionicons-v4',
       // 'mdi-v3',
-      // 'fontawesome-v5',
+      "fontawesome-v5",
       // 'eva-icons',
       // 'themify',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!

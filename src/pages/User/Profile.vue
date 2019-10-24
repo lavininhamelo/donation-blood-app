@@ -130,21 +130,34 @@ export default {
 
       // native Javascript event
       // console.log(evt)
+
+      if (evt.type == "touchmove") {
+        this.currentPosition = info.position.top;
+        if (this.currentPosition <= 0) {
+          this.currentPosition = 0;
+        } else if (this.currentPosition >= limit) {
+          this.currentPosition = limit;
+        }
+
+        // if (this.panning === false) {
+        //   console.log("Cabo");
+
+        //   }
+        // }
+      } else if (evt.type == "touchend") {
+        if (info.offset.y > 0) {
+          this.movePanel(false);
+          this.currentSide = "down";
+        } else {
+          this.movePanel(true);
+          this.currentSide = "up";
+        }
+      }
+
       if (info.isFirst) {
         this.panning = true;
       } else if (info.isFinal) {
         this.panning = false;
-        if (info.offset.y > 0) {
-          if (this.currentSide != "down") {
-            this.movePanel(false);
-            this.currentSide = "down";
-          }
-        } else {
-          if (this.currentSide != "up") {
-            this.movePanel(true);
-            this.currentSide = "up";
-          }
-        }
       }
     },
     logout() {
