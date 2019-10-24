@@ -70,6 +70,12 @@
       <div class="card text-center" v-bind:style="{height: this.$q.screen.height+'px'}">
         <span>Ola</span>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil labore harum quibusdam quidem error! Modi deleniti vel eum quo magnam, animi, voluptates sed voluptatibus sint in ratione aspernatur velit esse.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil labore harum quibusdam quidem error! Modi deleniti vel eum quo magnam, animi, voluptates sed voluptatibus sint in ratione aspernatur velit esse.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil labore harum quibusdam quidem error! Modi deleniti vel eum quo magnam, animi, voluptates sed voluptatibus sint in ratione aspernatur velit esse.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil labore harum quibusdam quidem error! Modi deleniti vel eum quo magnam, animi, voluptates sed voluptatibus sint in ratione aspernatur velit esse.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil labore harum quibusdam quidem error! Modi deleniti vel eum quo magnam, animi, voluptates sed voluptatibus sint in ratione aspernatur velit esse.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil labore harum quibusdam quidem error! Modi deleniti vel eum quo magnam, animi, voluptates sed voluptatibus sint in ratione aspernatur velit esse.</p>
+
       </div>
     </div>
   </div>
