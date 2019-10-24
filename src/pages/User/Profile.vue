@@ -85,7 +85,7 @@ export default {
     return {
       info: null,
       panning: false,
-      currentSide: null,
+      currentSide: "down",
       currentPosition: this.$q.screen.height * 0.85,
       email: auth.currentUser.email,
       first_name: null,
@@ -127,23 +127,23 @@ export default {
       const marginBottom = 0.85;
       const limit = this.$q.screen.height * marginBottom;
       this.info = info;
-      this.currentPosition = info.position.top;
-      if (this.currentPosition <= 0) {
-        this.currentPosition = 0;
-      } else if (this.currentPosition >= limit) {
-        this.currentPosition = limit;
-      }
+
       // native Javascript event
       // console.log(evt)
-
       if (info.isFirst) {
         this.panning = true;
       } else if (info.isFinal) {
         this.panning = false;
         if (info.offset.y > 0) {
-          this.movePanel(false);
+          if (this.currentSide != "down") {
+            this.movePanel(false);
+            this.currentSide = "down";
+          }
         } else {
-          this.movePanel(true);
+          if (this.currentSide != "up") {
+            this.movePanel(true);
+            this.currentSide = "up";
+          }
         }
       }
     },

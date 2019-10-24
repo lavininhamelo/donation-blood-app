@@ -1,21 +1,16 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
-module.exports = function (ctx) {
+module.exports = function(ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
-    boot: [
-      'i18n',
-      'axios'
-    ],
+    boot: ["i18n", "axios"],
 
-    css: [
-      'app.styl'
-    ],
+    css: ["app.styl"],
 
     extras: [
-      'material-icons-outlined',
+      "material-icons-outlined",
       // 'ionicons-v4',
       // 'mdi-v3',
       // 'fontawesome-v5',
@@ -23,8 +18,8 @@ module.exports = function (ctx) {
       // 'themify',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
-      'roboto-font', // optional, you are not bound to it
-      'material-icons' // optional, you are not bound to it
+      "roboto-font", // optional, you are not bound to it
+      "material-icons" // optional, you are not bound to it
     ],
 
     framework: {
@@ -34,36 +29,32 @@ module.exports = function (ctx) {
       all: true, // --- includes everything; for dev only!
 
       components: [
-        'QLayout',
-        'QHeader',
-        'QDrawer',
-        'QPageContainer',
-        'QPage',
-        'QToolbar',
-        'QToolbarTitle',
-        'QBtn',
-        'QIcon',
-        'QList',
-        'QItem',
-        'QItemSection',
-        'QItemLabel'
+        "QLayout",
+        "QHeader",
+        "QDrawer",
+        "QPageContainer",
+        "QPage",
+        "QToolbar",
+        "QToolbarTitle",
+        "QBtn",
+        "QIcon",
+        "QList",
+        "QItem",
+        "QItemSection",
+        "QItemLabel"
       ],
 
-      directives: [
-        'Ripple'
-      ],
+      directives: ["Ripple"],
 
       // Quasar plugins
-      plugins: [
-        'Notify'
-      ]
+      plugins: ["Notify"]
     },
 
     supportIE: false,
 
     build: {
       scopeHoisting: true,
-      vueRouterMode: 'history',
+      vueRouterMode: "history",
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,
@@ -78,7 +69,7 @@ module.exports = function (ctx) {
     },
 
     // animations: 'all', // --- includes all animations
-    animations: 'all',
+    animations: "all",
 
     ssr: {
       pwa: false
@@ -88,47 +79,46 @@ module.exports = function (ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {}, // only for NON InjectManifest
       manifest: {
-        name: 'iBlood',
-        short_name: 'iBlood',
+        name: "iBlood",
+        short_name: "iBlood",
         // description: ' ',
-        display: 'standalone',
-        orientation: 'portrait',
-        background_color: '#ffffff',
-        theme_color: '#027be3',
-        icons: [{
-            'src': 'statics/icons/icon-128x128.png',
-            'sizes': '128x128',
-            'type': 'image/png'
+        display: "standalone",
+        orientation: "portrait",
+        background_color: "#ffffff",
+        theme_color: "#027be3",
+        icons: [
+          {
+            src: "statics/icons/icon-128x128.png",
+            sizes: "128x128",
+            type: "image/png"
           },
           {
-            'src': 'statics/icons/icon-192x192.png',
-            'sizes': '192x192',
-            'type': 'image/png'
+            src: "statics/icons/icon-192x192.png",
+            sizes: "192x192",
+            type: "image/png"
           },
           {
-            'src': 'statics/icons/icon-256x256.png',
-            'sizes': '256x256',
-            'type': 'image/png'
+            src: "statics/icons/icon-256x256.png",
+            sizes: "256x256",
+            type: "image/png"
           },
           {
-            'src': 'statics/icons/icon-384x384.png',
-            'sizes': '384x384',
-            'type': 'image/png'
+            src: "statics/icons/icon-384x384.png",
+            sizes: "384x384",
+            type: "image/png"
           },
           {
-            'src': 'statics/icons/icon-512x512.png',
-            'sizes': '512x512',
-            'type': 'image/png'
+            src: "statics/icons/icon-512x512.png",
+            sizes: "512x512",
+            type: "image/png"
           }
         ]
       }
     },
 
     cordova: {
-      id: 'br.com.iblood.app',
+      id: "br.com.iblood.app"
       // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
-    },
-
-
-  }
-}
+    }
+  };
+};
