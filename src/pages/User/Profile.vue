@@ -59,7 +59,7 @@
     <div
       class="content teste"
       :style="{ top: currentPosition+'px'}"
-      v-touch-swipe.mouse.up.down="handleSwipe"
+      v-touch-pan.vertical.prevent.mouse="handlePan"
       ref="contentPanel"
     >
       <div class="menu">
@@ -99,29 +99,45 @@ export default {
   },
   methods: {
     movePanel(toUp) {
-      let marginBottom = 0.85;
-      let elem = this.$refs.contentPanel;
-
+      const marginBottom = 0.85;
+      const limit = this.$q.screen.height * marginBottom;
+      const elem = this.$refs.contentPanel;
+      const velocity = 10.5;
       if (toUp) {
-        let pos = this.$q.screen.height * marginBottom;
-        let id = setInterval(frame, 1);
-
-        function frame() {
-          if (pos <= 0) {
+        let id = setInterval(() => {
+          if (this.currentPosition <= 0) {
+            this.currentPosition = 0;
             clearInterval(id);
           } else {
-            pos -= 5.5;
-            elem.style.top = pos + "px";
+            this.currentPosition -= velocity;
           }
-        }
+        }, 1);
       } else {
+        let id = setInterval(() => {
+          if (this.currentPosition >= limit) {
+            this.currentPosition = limit;
+            clearInterval(id);
+          } else {
+            this.currentPosition += velocity;
+          }
+        }, 1);
       }
     },
-    handleSwipe({ evt, ...info }) {
-      if (info.direction === "up") {
-        this.movePanel(true);
-      } else {
-        this.movePanel(false);
+    handlePan({ evt, ...info }) {
+      this.info = info;
+
+      // native Javascript event
+      // console.log(evt)
+
+      if (info.isFirst) {
+        this.panning = true;
+      } else if (info.isFinal) {
+        this.panning = false;
+        if (info.offset.y > 0) {
+          this.movePanel(false);
+        } else {
+          this.movePanel(true);
+        }
       }
     },
     logout() {
