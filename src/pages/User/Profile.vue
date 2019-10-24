@@ -85,7 +85,7 @@ export default {
     return {
       info: null,
       panning: false,
-
+      currentSide: null,
       currentPosition: this.$q.screen.height * 0.85,
       email: auth.currentUser.email,
       first_name: null,
@@ -124,8 +124,15 @@ export default {
       }
     },
     handlePan({ evt, ...info }) {
+      const marginBottom = 0.85;
+      const limit = this.$q.screen.height * marginBottom;
       this.info = info;
-
+      this.currentPosition = info.position.top;
+      if (this.currentPosition <= 0) {
+        this.currentPosition = 0;
+      } else if (this.currentPosition >= limit) {
+        this.currentPosition = limit;
+      }
       // native Javascript event
       // console.log(evt)
 
